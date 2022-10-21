@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>True & Fake news</title>
+<meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="container__item">
+          <form class="form" action="{{ url_for('predict')}}" method="POST">
+            <input name="message" type="text" class="form__field" placeholder="write the news here" required="required" />
+            <button type="submit" class="btn btn--primary btn--inside uppercase">perdict</button>
+
+              <div class="results">
+
+	        {% if prediction == 0 %}
+	                <h2 style="color:red;">Looking Spam⚠️News📰 </h2>
+	        {% elif prediction == 1 %}
+			    	<h2 style="color:green;"><b>Looking Real News📰</b></h2>
+	        {% endif %}
+
+	        </div>
+          </form>
+        </div>
+        
+        
+      </div>
+</body>
+</html>
